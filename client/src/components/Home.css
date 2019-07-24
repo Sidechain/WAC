@@ -51,6 +51,7 @@
 }
 
 .Home__summary__weathericon {
+  overflow: hidden;
   grid-area: weathericon;
   text-align: center;
 }
@@ -79,13 +80,13 @@
   grid-area: summary;
   text-align: center;
   justify-content: center;
-  font-size: 1.5rem;
-  padding-left: 5rem;
+  padding: 0.5rem;
 }
 
 .Home__summary__chart {
   grid-area: chart;
   text-align: center;
+  margin-top: 8rem;
 }
 
 .Home__summary__humidity {
@@ -135,4 +136,16 @@
 
 .summary__weathericon--size {
   width: 40vw;
+}
+
+.textGreen {
+  color: lightgreen !important;
+}
+
+.textYellow {
+  color:  gold !important;
+}
+
+.textRed {
+  color: lightpink !important;
 }

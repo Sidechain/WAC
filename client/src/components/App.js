@@ -33,6 +33,7 @@ function App() {
 
   return (
     <div className={getClass()}>
+    
      {!isLogin && <ReactAnimatedWeather
       className="App__animatedweather"
       icon={defaults.icon}

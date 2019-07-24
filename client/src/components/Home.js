@@ -51,9 +51,7 @@ function Home({ isLogin }) {
   
   const getGeolocation = () => {
     navigator.geolocation.getCurrentPosition(function (position) {
-      // setGeolocation({ lat: position.coords.latitude, long: position.coords.longitude })
       setGeolocation({ lat: position.coords.latitude, long: position.coords.longitude })
-
     });
   }
 
@@ -80,6 +78,18 @@ function Home({ isLogin }) {
       case "wind" :
         return (<img className="summary__weathericon--size" src={wind} />)
     }
+  }
+
+  const getAQI = (value) => {
+    if (value < 75) return (<p className="textGreen">{value} AQI</p>)
+    if (value < 175) return (<p className="textYellow">{value} AQI</p>)
+    if (value > 175) return (<p className="textRed">{value} AQI</p>)
+  }
+
+  const getCO2 = (value) => {
+    if (value < 100) return (<p className="textGreen">{value} gCO2/kWh</p>)
+    if (value < 300) return (<p className="textYellow">{value} gCO2/kWh</p>)
+    if (value > 300) return (<p className="textRed">{value} gCO2/kWh</p>)
   }
 
   const defaults = {
@@ -140,7 +150,7 @@ function Home({ isLogin }) {
 
             <div className="Home__summary__humidity">
               <img className="Home__summary__icon" src={humidity} />
-              <p>{data.weather.currently.humidity*100} %</p>
+              <p>{Math.round(data.weather.currently.humidity*100)} %</p>
             </div>
             
             <div className="Home__summary__pressure">
@@ -150,7 +160,7 @@ function Home({ isLogin }) {
             
             <div className="Home__summary__windspeed">
             <img className="Home__summary__icon" src={windspeed} />
-            <p>{data.weather.currently.windSpeed} m/s</p>
+            <p>{Math.round(data.weather.currently.windSpeed)} m/s</p>
             </div>
             
             <div className="Home__summary__visibility">
@@ -160,12 +170,12 @@ function Home({ isLogin }) {
 
             <div className="Home__summary__emission">
               <img className="Home__summary__icon" src={co2emission} />
-              <p>{Math.round(data.co2.data.carbonIntensity)} gCO2/kWh</p>
+              {getCO2(Math.round(data.co2.data.carbonIntensity))}
             </div>
             
             <div className="Home__summary__aq">
               <img className="Home__summary__icon" src={aq} />
-              <p>{data.aq.aqius} AQI</p>
+              {getAQI(data.aq.aqius)}
             </div>
   
           </div>
