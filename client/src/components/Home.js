@@ -154,16 +154,16 @@ function Home({ isLogin }) {
               {getWeatherIcon(data.weather.currently.icon)}
             </div>
 
-            <div className="Home__summary__apparentPrecipitation" onClick={() => { 
-              setChartData( history.history.map( ({timeStamp, temp}) => ({timeStamp, value: temp}) ) )
-              }}>
-              <div className="Home__summary__apparent">   
+            <div className="Home__summary__apparentPrecipitation">
+              <div className="Home__summary__apparent" onClick={() => { 
+                setChartData( history.history.map( ({timeStamp, temp}) => ({timeStamp, label: "Temperature History", value: temp}) ) )
+                }}>   
                 <img className="Home__summary__icon" src={apparent} /> 
                 <p>{Math.round(data.weather.currently.apparentTemperature)} °C</p>
               </div>
 
               <div className="Home__summary__precipitation" onClick={() => { 
-                setChartData( history.history.map( ({timeStamp, precip}) => ({timeStamp, value: precip}) ) )
+                setChartData( history.history.map( ({timeStamp, precip}) => ({timeStamp, label: "Precipitation History", value: precip}) ) )
                 }}>
                 <img className="Home__summary__icon" src={precip} />
                 <p>{data.weather.currently.precipProbability}%</p>
@@ -179,42 +179,42 @@ function Home({ isLogin }) {
             </div>
 
             <div className="Home__summary__humidity" onClick={() => { 
-              setChartData( history.history.map( ({timeStamp, aqi}) => ({timeStamp, value: aqi}) ) )
+              setChartData( history.history.map( ({timeStamp, aqi}) => ({timeStamp, label: "Humidity History", value: aqi}) ) )
               }}>
               <img className="Home__summary__icon" src={humidity} />
               <p>{Math.round(data.weather.currently.humidity*100)} %</p>
             </div>
             
             <div className="Home__summary__pressure" onClick={() => { 
-              setChartData( history.history.map( ({timeStamp, pressure}) => ({timeStamp, value: pressure}) ) )
+              setChartData( history.history.map( ({timeStamp, pressure}) => ({timeStamp, label: "Pressure History", value: pressure}) ) )
               }}>
               <img className="Home__summary__icon" src={pressure} />
               <p>{Math.round(data.weather.currently.pressure)} hPa</p>
             </div>
             
             <div className="Home__summary__windspeed" onClick={() => { 
-              setChartData( history.history.map( ({timeStamp, windspeed}) => ({timeStamp, value: windspeed}) ) )
+              setChartData( history.history.map( ({timeStamp, windspeed}) => ({timeStamp, label: "Windspeed History", value: windspeed}) ) )
               }}>
             <img className="Home__summary__icon" src={windspeed} />
             <p>{Math.round(data.weather.currently.windSpeed)} m/s</p>
             </div>
             
             <div className="Home__summary__visibility" onClick={() => { 
-              setChartData( history.history.map( ({timeStamp, visibility}) => ({timeStamp, value: visibility}) ) )
+              setChartData( history.history.map( ({timeStamp, visibility}) => ({timeStamp, label: "Visibility History", value: visibility}) ) )
               }}>
             <img className="Home__summary__icon" src={visibility} />
             <p>{Math.round(data.weather.currently.visibility)} km</p>
             </div>
 
             <div className="Home__summary__emission" onClick={() => { 
-              setChartData( history.history.map( ({timeStamp, co2}) => ({timeStamp, value: co2}) ) )
+              setChartData( history.history.map( ({timeStamp, co2}) => ({timeStamp, label: "CO2 Emission History", value: co2}) ) )
               }}>
               <img className="Home__summary__icon" src={co2emission} />
               {getCO2(Math.round(data.co2.data.carbonIntensity))}
             </div>
             
             <div className="Home__summary__aq" onClick={() => { 
-              setChartData( history.history.map( ({timeStamp, aqi}) => ({timeStamp, value: aqi}) ) )
+              setChartData( history.history.map( ({timeStamp, aqi}) => ({timeStamp, label: "Air Quality Index History", value: aqi}) ) )
               }}>
               <img className="Home__summary__icon" src={aq} />
               {getAQI(data.aq.aqius)}

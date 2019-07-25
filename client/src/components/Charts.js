@@ -8,6 +8,7 @@ export default function Chart({chartData}) {
       <ResponsiveContainer width="100%" height={200}>
 
         <LineChart data={chartData} margin={{ top: 10, right: 10, left: 10, bottom: 10 }} >
+        
           <Line type="monotone" dataKey="high" stroke="#ffffff" fill="#fc3503" strokeWidth={2}>
             <LabelList dataKey="high" position="top" fill="#ffffff" fontSize="13"/>
           </Line>
@@ -16,7 +17,9 @@ export default function Chart({chartData}) {
             <LabelList dataKey="low" position="bottom" fill="#ffffff" fontSize="13"/>
           </Line>
           
-          <XAxis dataKey="name"  padding={{ left: 20, right: 20}} stroke="#ffffff"/>
+          <XAxis dataKey="name"  padding={{ left: 20, right: 20}} stroke="#ffffff">
+            <Label value="Weekly Forecast" position="top" fill="#ffffff" fontSize="15"/>
+          </XAxis>
           <YAxis padding={{ top: 10 }} hide />
         </LineChart>
 
