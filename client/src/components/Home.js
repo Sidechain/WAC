@@ -171,7 +171,7 @@ function Home({ isLogin }) {
             </div>
 
             <div className="Home__summary__summary" onClick={() => { setChartData() }}>
-              <p><b>{data.weather.summary}</b></p>
+              <p><b>{data.weather.currently.summary}</b></p>
             </div>
             
             <div className="Home__summary__chart summary__item--full">
