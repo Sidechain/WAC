@@ -79,7 +79,6 @@ function Home({ isLogin }) {
       // New Delhi
       // setGeolocation({ lat: 28.648724, long: 77.195002 })
 
-
       // setGeolocation({ lat: position.coords.latitude, long: position.coords.longitude })
     });
   }
@@ -168,7 +167,7 @@ function Home({ isLogin }) {
                 setChartData( history.history.map( ({timeStamp, precip}) => ({timeStamp, label: "Precipitation History", value: precip}) ) )
                 }}>
                 <img className="Home__summary__icon" src={precip} />
-                <p>{data.weather.currently.precipProbability}%</p>
+                <p>{Math.round(data.weather.currently.precipProbability * 100)}%</p>
               </div>
             </div>
 

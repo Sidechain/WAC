@@ -23,12 +23,12 @@ router.post('/', function (req, res, next) {
           timeStamp: moment(e.timeStamp).format("MMM Do HH:mm"), 
           aqi:e.aq.aqius,
           temp: Math.round(e.weather.currently.temperature),
-          precip: e.weather.currently.precipProbability*100,
+          precip: Math.round(e.weather.currently.precipProbability*100),
           pressure: Math.round(e.weather.currently.pressure),
-          humidity: e.weather.currently.humidity*100,
+          humidity: Math.round(e.weather.currently.humidity*100),
           windspeed: Math.round(e.weather.currently.windSpeed),
           visibility: Math.round(e.weather.currently.visibility),
-          co2: (e.co2 && e.co2.data) ? e.co2.data.carbonIntensity : null
+          co2: (e.co2 && e.co2.data) ? Math.round(e.co2.data.carbonIntensity) : null
         }));
         res.send({history})
         db.close();

@@ -15,7 +15,7 @@ console.log("WHEEEEEEEEEEEEEEEEEEEEE",chartData);
             </linearGradient>
           </defs>
           <XAxis dataKey="timeStamp" padding={{ left: 20, right: 20}} stroke="#ffffff00">
-            <Label value={`${chartData[0].label}`} position="insideBottom" fill="#ffffff" fontSize="15"/>
+            <Label value={`${chartData[0].label}`} position="insideBottom" fill="#ffffff" fontSize="5vw"/>
           </XAxis>
           <YAxis padding={{ bottom: 10 }} hide/>
           <Tooltip cursor={{ stroke: 'red', strokeWidth: 2 }} 

@@ -18,7 +18,7 @@ export default function Chart({chartData}) {
           </Line>
           
           <XAxis dataKey="name"  padding={{ left: 20, right: 20}} stroke="#ffffff">
-            <Label value="Weekly Forecast" position="top" fill="#ffffff" fontSize="15"/>
+            <Label value="Weekly Forecast" position="top" fill="#ffffff" fontSize="5vw"/>
           </XAxis>
           <YAxis padding={{ top: 10 }} hide />
         </LineChart>
