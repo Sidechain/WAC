@@ -25,14 +25,8 @@
   overflow: hidden;
 }
 
-Login {
-  border-style: solid;
-  border-width: 10px;
-  border-radius: 50%;
-}
-
 canvas {
-  width: 100%;
+  min-width: 100%;
 }
 
 .App__morning {

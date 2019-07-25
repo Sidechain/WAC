@@ -1,13 +1,14 @@
 .Home {
-
-}
-.Home__body {
-
-  color: white;
-}
-.Home__spinner {
   min-width: 100%;
 }
+.Home__body {
+  color: white;
+}
+
+.Home__spinner {
+  padding-top: 5rem;
+}
+
 .Home__summary {
   display: grid; 
   grid-template-columns: 1fr 1fr; 

@@ -201,7 +201,7 @@ function Home({ isLogin }) {
             
             <div className="Home__summary__visibility" onClick={() => { 
               setChartData( history.history.map( ({timeStamp, visibility}) => ({timeStamp, value: visibility}) ) )
-              }}>>
+              }}>
             <img className="Home__summary__icon" src={visibility} />
             <p>{Math.round(data.weather.currently.visibility)} km</p>
             </div>
@@ -223,13 +223,8 @@ function Home({ isLogin }) {
           </div>
         }
       </div>
-
     </div>
   );
-
-  // <p>Humidity: {weather.humidity} %</p>
-  // <p>Pressure: {weather.pressure} Pa</p>
-
-
 }
+
 export default Home;
