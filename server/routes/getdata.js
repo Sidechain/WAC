@@ -14,9 +14,9 @@ router.post('/', function (req, res, next) {
      ,
     fetch(`https://api.opencagedata.com/geocode/v1/json?q=${req.body.lat}+${req.body.long}&key=${openCageKey}&pretty=1}`)
       .then(response => response.json())
-      .then(data => ({city: data.results[0].components.city, district: data.results[0].components.city_district}))
+      .then(data => ({county: data.results[0].components.county, city: data.results[0].components.city, suburb: data.results[0].components.suburb}))
     ,
-    fetch(`https://api.airvisual.com/v2/nearest_city?key=${airVisKey}`)
+    fetch(`https://api.airvisual.com/v2/nearest_city?lat=${req.body.lat}&lon=${req.body.long}&key=${airVisKey}`)
       .then(response => response.json())
       .then(data => data.data.current.pollution),
     fetch(`https://api.co2signal.com/v1/latest?lon=${req.body.long}&lat=${req.body.lat}`, {headers : {'auth-token': co2key} })

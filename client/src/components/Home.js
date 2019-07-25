@@ -73,7 +73,14 @@ function Home({ isLogin }) {
   
   const getGeolocation = () => {
     navigator.geolocation.getCurrentPosition(function (position) {
-      setGeolocation({ lat: position.coords.latitude, long: position.coords.longitude })
+      // Kyoto
+      setGeolocation({ lat: 34.977940, long: 135.805200 })
+
+      // New Delhi
+      // setGeolocation({ lat: 28.648724, long: 77.195002 })
+
+
+      // setGeolocation({ lat: position.coords.latitude, long: position.coords.longitude })
     });
   }
 
@@ -114,11 +121,6 @@ function Home({ isLogin }) {
     if (value > 300) return (<p className="textRed">{value} gCO2/kWh</p>)
   }
 
-  const getChartData = () => {
-    const result = history.history.map( ({timeStamp, aqi}) => ({timeStamp, value: aqi}) )
-    console.log('history map result:', result)
-  }
-
   const defaults = {
     icon: 'WIND',
     color: 'white',
@@ -142,8 +144,8 @@ function Home({ isLogin }) {
           <div className="Home__summary">
 
             <div className="Home__summary_location" onClick={() => { setChartData() }}>
-              <h1>{data.location.city}</h1>
-              <h6>{data.location.district}</h6>
+              <h1>{data.location.county ? data.location.county : data.location.city}</h1>
+              <h6>{data.location.suburb}</h6>
             </div>
 
             <div className="Home__summary__temp" onClick={() => { setChartData() }}>
@@ -210,7 +212,7 @@ function Home({ isLogin }) {
               setChartData( history.history.map( ({timeStamp, co2}) => ({timeStamp, label: "CO2 Emission History", value: co2}) ) )
               }}>
               <img className="Home__summary__icon" src={co2emission} />
-              {getCO2(Math.round(data.co2.data.carbonIntensity))}
+              {data.co2.data.carbonIntensity ? getCO2(Math.round(data.co2.data.carbonIntensity)) : <p>N/A</p>}
             </div>
             
             <div className="Home__summary__aq" onClick={() => { 

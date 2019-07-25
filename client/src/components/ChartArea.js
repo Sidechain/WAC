@@ -18,12 +18,12 @@ console.log("WHEEEEEEEEEEEEEEEEEEEEE",chartData);
             <Label value={`${chartData[0].label}`} position="insideBottom" fill="#ffffff" fontSize="15"/>
           </XAxis>
           <YAxis padding={{ bottom: 10 }} hide/>
-          <Tooltip cursor={{ stroke: 'red', strokeWidth: 1 }} 
+          <Tooltip cursor={{ stroke: 'red', strokeWidth: 2 }} 
             wrapperStyle={{ backgroundColor: "red" }}
             labelStyle={{ color: "green" }}
-            itemStyle={{ color: "cyan" }}
+            itemStyle={{ color: "black" , size: "50"}}
             labelFormatter={ value => `${value}`}
-            formatter={(value, name) => `${value}` }
+            formatter={(value, name) => `${value}`}
           />
           <Area type="monotone" dataKey="value" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
         </AreaChart>

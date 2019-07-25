@@ -21,7 +21,7 @@
     "humidity pressure"
     "windspeed visibility"
     "emission aq";
-    padding-bottom: 5rem;
+    padding-bottom: 2rem;
 }
 
 .Home__summary_location {
@@ -92,7 +92,7 @@
 .Home__summary__chart {
   grid-area: chart;
   text-align: center;
-  margin-top: 8rem;
+  margin-top: 4rem;
 }
 
 .Home__summary__humidity {
