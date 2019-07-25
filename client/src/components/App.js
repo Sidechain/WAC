@@ -19,7 +19,7 @@ function App() {
     const currentTime = moment().format('HH');
     console.log(currentTime)
     switch (true) {
-      case (currentTime >= 22 && currentTime > 4): 
+      case (currentTime >= 22 || currentTime < 4): 
         return 'App App__night'
       case (currentTime >= 4 && currentTime < 10):
         return 'App App__morning'
