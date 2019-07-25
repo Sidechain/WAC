@@ -21,6 +21,12 @@ router.post('/', function (req, res, next) {
       .then(data => data.data.current.pollution),
     fetch(`https://api.co2signal.com/v1/latest?lon=${req.body.long}&lat=${req.body.lat}`, {headers : {'auth-token': co2key} })
       .then(data => data.json())
+      .then((data) => {
+        if (data.message) {
+          return { data: {} }
+        }
+        return data;
+      })
 
   ]).then(([weather, location, aq, co2]) =>  ({timeStamp: Date.now(), weather, location, aq, co2}))
     .then(data => transferToDb(data, req, res))

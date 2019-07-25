@@ -16,7 +16,7 @@ router.post('/', function (req, res, next) {
     dbo.collection('users').find({}, {projection: {_id: 0, id:1 , history:1}}).toArray( function (err, result) {
       if (err) throw err;
       const userData = result.find(user => user.id === auth.id)
-      console.log(result)
+      // console.log(userData.history[0].co2.data.carbonIntensity)
       if (userData) {
         const history = userData.history.map(e => ({
           location: e.location.city, 
@@ -28,7 +28,7 @@ router.post('/', function (req, res, next) {
           humidity: e.weather.currently.humidity*100,
           windspeed: Math.round(e.weather.currently.windSpeed),
           visibility: Math.round(e.weather.currently.visibility),
-          co2: Math.round(e.co2.data)
+          co2: (e.co2 && e.co2.data) ? e.co2.data.carbonIntensity : null
         }));
         res.send({history})
         db.close();
