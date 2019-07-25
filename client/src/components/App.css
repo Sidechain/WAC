@@ -1,21 +1,37 @@
-
-
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   min-width: 100%;
   min-height: 100vh;
 }
 
-.App__animatedweather > canvas {
-  width: 10% !important;
+.App__animatedWeather {
+  width: 50%;
+  padding-top: 10rem;
 }
 
-
-.App__logo{
-
+.App__logo {
   font-family: Raleway;
 }
 
-canvas{
+.App__loginButton {
+  margin-bottom: 5rem;
+  border-top-left-radius: 2%;
+  border-top-right-radius: 2%;
+  border-bottom-left-radius: 2%;
+  border-bottom-right-radius: 2%;
+  overflow: hidden;
+}
+
+Login {
+  border-style: solid;
+  border-width: 10px;
+  border-radius: 50%;
+}
+
+canvas {
   width: 100%;
 }
 
@@ -41,7 +57,4 @@ canvas{
   background: #000046;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to bottom, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to bottom, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
-  
-  
 }

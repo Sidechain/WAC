@@ -34,14 +34,14 @@ function App() {
   return (
     <div className={getClass()}>
     
-     {!isLogin && <ReactAnimatedWeather
-      className="App__animatedweather"
+
+     {!isLogin && <div className="App__animatedWeather"><ReactAnimatedWeather
       icon={defaults.icon}
       color={defaults.color}
       size={defaults.size}
       animate={defaults.animate}
-     />}
-      {!isLogin && <Login setIsLogin={setIsLogin} />}
+     /></div>}
+      {!isLogin && <div className="App__loginButton"><Login setIsLogin={setIsLogin} /></div>}
       {isLogin && <Home isLogin={isLogin}/>}
     </div>
   );

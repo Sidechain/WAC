@@ -133,7 +133,6 @@ function Home({ isLogin }) {
         {!data ?
           <div className="Home__spinner">
             <ReactAnimatedWeather
-              className="App__animatedweather"
               icon={defaults.icon}
               color={defaults.color}
               size={defaults.size}
