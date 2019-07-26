@@ -39,7 +39,7 @@ function Home({ isLogin }) {
 
   useEffect(() => {
     if (geolocation) getData(geolocation, isLogin, setData); 
-  }, [geolocation]);
+  }, [geolocation, isLogin]);
 
 
   useEffect(() => {
@@ -57,7 +57,7 @@ function Home({ isLogin }) {
       setForcast(forecastArray);
       console.log('data :', data)
     }
-  }, [data]);
+  }, [data, isLogin]);
 
   useEffect(() => {
     console.log('history :', history)
@@ -68,7 +68,7 @@ function Home({ isLogin }) {
   }, [forcast])
 
   useEffect(() => {
-    console.log('chartData:', chartData)
+    // console.log('chartData:', chartData)
   }, [chartData]);
   
   const getGeolocation = () => {
@@ -86,25 +86,25 @@ function Home({ isLogin }) {
   const getWeatherIcon = (weather) => {
     switch(weather) {
       case "partly-cloudy-day" :
-        return (<img className="summary__weathericon--size" src={partlyCloudyDay} />)
+        return (<img className="summary__weathericon--size" src={partlyCloudyDay} alt="cloudy day icon" />)
       case "partly-cloudy-night" :
-        return (<img className="summary__weathericon--size" src={partlyCloudyNight} />)
+        return (<img className="summary__weathericon--size" src={partlyCloudyNight} alt="cloudy night icon" />)
       case "clear-day" :
-        return (<img className="summary__weathericon--size" src={clearDay} />)
+        return (<img className="summary__weathericon--size" src={clearDay} alt="clear day icon" />)
       case "clear-night" :
-        return (<img className="summary__weathericon--size" src={clearNight} />)
+        return (<img className="summary__weathericon--size" src={clearNight} alt="clear night icon" />)
       case "cloudy" :
-        return (<img className="summary__weathericon--size" src={cloudy} />)
+        return (<img className="summary__weathericon--size" src={cloudy} alt="cloudy icon" />)
       case "fog" :
-        return (<img className="summary__weathericon--size" src={fog} />)
+        return (<img className="summary__weathericon--size" src={fog} alt="fog icon" />)
       case "rain" :
-        return (<img className="summary__weathericon--size" src={rain} />)
+        return (<img className="summary__weathericon--size" src={rain} alt="rain icon" />)
       case "sleet" :
-        return (<img className="summary__weathericon--size" src={sleet} />)
+        return (<img className="summary__weathericon--size" src={sleet} alt="sleet icon" />)
       case "snow" :
-        return (<img className="summary__weathericon--size" src={snow} />)
-      case "wind" :
-        return (<img className="summary__weathericon--size" src={wind} />)
+        return (<img className="summary__weathericon--size" src={snow} alt="snow icon" />)
+      default :
+        return (<img className="summary__weathericon--size" src={wind} alt="wind icon" />)
     }
   }
 
@@ -159,14 +159,14 @@ function Home({ isLogin }) {
               <div className="Home__summary__apparent" onClick={() => { 
                 setChartData( history.history.map( ({timeStamp, temp}) => ({timeStamp, label: "My Temperature History", value: temp}) ) )
                 }}>   
-                <img className="Home__summary__icon" src={apparent} /> 
+                <img className="Home__summary__icon" src={apparent} alt="apparent temperature icon" /> 
                 <p>{Math.round(data.weather.currently.apparentTemperature)} °C</p>
               </div>
 
               <div className="Home__summary__precipitation" onClick={() => { 
                 setChartData( history.history.map( ({timeStamp, precip}) => ({timeStamp, label: "My Precipitation History", value: precip}) ) )
                 }}>
-                <img className="Home__summary__icon" src={precip} />
+                <img className="Home__summary__icon" src={precip} alt="precipitation icon" />
                 <p>{Math.round(data.weather.currently.precipProbability * 100)}%</p>
               </div>
             </div>
@@ -182,42 +182,42 @@ function Home({ isLogin }) {
             <div className="Home__summary__humidity" onClick={() => { 
               setChartData( history.history.map( ({timeStamp, aqi}) => ({timeStamp, label: "My Humidity History", value: aqi}) ) )
               }}>
-              <img className="Home__summary__icon" src={humidity} />
+              <img className="Home__summary__icon" src={humidity} alt="humidity icon" />
               <p>{Math.round(data.weather.currently.humidity*100)} %</p>
             </div>
             
             <div className="Home__summary__pressure" onClick={() => { 
               setChartData( history.history.map( ({timeStamp, pressure}) => ({timeStamp, label: "My Pressure History", value: pressure-1000}) ) )
               }}>
-              <img className="Home__summary__icon" src={pressure} />
+              <img className="Home__summary__icon" src={pressure} alt="presureicon" />
               <p>{Math.round(data.weather.currently.pressure)} hPa</p>
             </div>
             
             <div className="Home__summary__windspeed" onClick={() => { 
               setChartData( history.history.map( ({timeStamp, windspeed}) => ({timeStamp, label: "My Windspeed History", value: windspeed}) ) )
               }}>
-            <img className="Home__summary__icon" src={windspeed} />
+            <img className="Home__summary__icon" src={windspeed} alt="windspeed icon" />
             <p>{Math.round(data.weather.currently.windSpeed)} m/s</p>
             </div>
             
             <div className="Home__summary__visibility" onClick={() => { 
               setChartData( history.history.map( ({timeStamp, visibility}) => ({timeStamp, label: "My Visibility History", value: visibility}) ) )
               }}>
-            <img className="Home__summary__icon" src={visibility} />
+            <img className="Home__summary__icon" src={visibility} alt="visibility icon"/>
             <p>{Math.round(data.weather.currently.visibility)} km</p>
             </div>
 
             <div className="Home__summary__emission" onClick={() => { 
               setChartData( history.history.map( ({timeStamp, co2}) => ({timeStamp, label: "My CO2 Emission History", value: co2}) ) )
               }}>
-              <img className="Home__summary__icon" src={co2emission} />
+              <img className="Home__summary__icon" src={co2emission} alt="co2emission icon" />
               {data.co2.data.carbonIntensity ? getCO2(Math.round(data.co2.data.carbonIntensity)) : <p>N/A</p>}
             </div>
             
             <div className="Home__summary__aq" onClick={() => { 
               setChartData( history.history.map( ({timeStamp, aqi}) => ({timeStamp, label: "My Air Quality Index History", value: aqi}) ) )
               }}>
-              <img className="Home__summary__icon" src={aq} />
+              <img className="Home__summary__icon" src={aq} alt="air quality icon" />
               {getAQI(data.aq.aqius)}
             </div>
   

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, LabelList , AreaChart , Tooltip, Area, CartesianGrid, Label, ResponsiveContainer} from 'recharts';
+import React from 'react';
+import { LineChart, Line, XAxis, YAxis, LabelList, Label, ResponsiveContainer} from 'recharts';
 
 export default function Chart({chartData}) {
 

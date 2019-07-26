@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import FacebookLogin from 'react-facebook-login';
-import { postUsers, callUsers } from './db-connection-functions.js';
+import { postUsers } from './db-connection-functions.js';
 import './Login.css';
 
 

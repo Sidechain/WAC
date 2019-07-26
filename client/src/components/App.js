@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Login from './Login';
 import Home from './Home';
@@ -27,8 +27,9 @@ function App() {
         return 'App App__day'
       case (currentTime >= 16 && currentTime < 22):
         return 'App App__evening'
+      default :
+        return 'App'
     }
-    return 'App'
   }
 
   return (
